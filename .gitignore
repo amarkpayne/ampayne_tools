@@ -1,0 +1,8 @@
+# Ignore Pycharm Files
+.idea/*
+
+# Ignore Compiled Python Code
+*.pyc
+
+# Ignore IPython Checkpoints
+.ipynb_checkpoints/*
