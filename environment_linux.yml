@@ -1,6 +1,7 @@
 name: amptools_env
 channels:
   - defaults
+  - cantera
   - rmg
   - bokeh
   - rdkit
@@ -8,9 +9,9 @@ channels:
 dependencies:
   - python=2.7
   - numpy >=1.10.0
-  - cantera >=2.3.0a3
+  - cantera
   - jupyter
   - bokeh
-  - rdkit
+  - rdkit >=2018.09.1.0
   - openbabel
   
