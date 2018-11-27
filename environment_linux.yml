@@ -8,10 +8,16 @@ channels:
   - openbabel
 dependencies:
   - python=2.7
-  - numpy >=1.10.0
+  - bokeh
+  - cairo
+  - cairocffi
   - cantera
   - jupyter
-  - bokeh
-  - rdkit >=2018.09.1.0
+  - lpsolve55
+  - mpmath
+  - numpy
   - openbabel
-  
+  - pyrdl
+  - quantities
+  - rdkit >=2018.09.1.0
+  - scipy
