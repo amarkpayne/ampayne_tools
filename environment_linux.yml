@@ -3,10 +3,14 @@ channels:
   - defaults
   - rmg
   - bokeh
+  - rdkit
+  - openbabel
 dependencies:
   - python=2.7
   - numpy >=1.10.0
   - cantera >=2.3.0a3
   - jupyter
   - bokeh
+  - rdkit
+  - openbabel
   
