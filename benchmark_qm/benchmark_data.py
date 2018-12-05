@@ -3,10 +3,12 @@ from yaml import CLoader as Loader, CDumper as Dumper
 from copy import deepcopy
 from rdkit import Chem
 from rdkit.Chem import AllChem
+from warnings import warn
 import numpy as np
 import pybel as pyb
 import openbabel as ob
 import os
+import rdkit
 
 
 class BenchmarkEntry:
@@ -212,7 +214,13 @@ def smiles_to_openbabel(smi, nconf=None, geom_steps=500):
     return pybmol
 
 
-atomic_symbol = {i: Chem.Atom(i).GetSymbol() for i in range(1, 117)}
+try:
+    atomic_symbol = {i: Chem.Atom(i).GetSymbol() for i in range(1, 117)}
+except RuntimeError:
+    rdkit_version = rdkit.__version__
+    if int(rdkit_version.split('.')[0]) < 2018:
+        warn(Warning('RDKit version {0} detected. BenchmarkEntry objects require RDKit 2018 or later to generate force'
+                     'field geometries'.format(rdkit_version)))
 
 
 if __name__ == '__main__':
