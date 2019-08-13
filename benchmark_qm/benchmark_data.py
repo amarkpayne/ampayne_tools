@@ -16,7 +16,8 @@ class BenchmarkEntry:
     A class for storing info related to a molecule for QM benchmarking
     """
     def __init__(self, name=None, smiles=None, inchi=None, index=None, categories=None, multiplicity=None, charge=None,
-                 expt_sources=None, preferred_expt_source=None, ff_xyz=None, yaml_file=None, qm_files=None):
+                 rmg_symmetry=None, expt_sources=None, preferred_expt_source=None, ff_xyz=None, dft_xyzs=None,
+                 dft_freqs=None, yaml_file=None, qm_files=None):
         """
 
         :param name: Name of the species
@@ -26,9 +27,12 @@ class BenchmarkEntry:
         :param categories: list of categories (e.g. aromatics) that the species belongs to
         :param multiplicity: Spin multiplicity (2S+1)
         :param charge: The total net charge on the molecule
+        :param rmg_symmetry: The symmetry number of the molecule as calculated by rmg
         :param expt_sources: A list of sources with experimental source objects
         :param preferred_expt_source: The chosen experimental data used for benchmarking this species
         :param ff_xyz: The xyz coordinates of the lowest energy conformer from force fields (as a string)
+        :param dft_xyzs: A dictionary with the DFT method string as keys and xyz geometry as values
+        :param dft_freqs: A dictionary with the DFT method string as keys and frequencies as values
         :param yaml_file: The relative location of the yaml file (used to store the data of this object)
         :param qm_files: A dictionary for the mapping {str(file_description):str(file_path)}
         """
@@ -39,9 +43,12 @@ class BenchmarkEntry:
         self.categories = categories or []
         self.multiplicity = multiplicity
         self.charge = charge
+        self.rmg_symmetry = rmg_symmetry
         self.expt_sources = expt_sources or []
         self.preferred_expt_source = preferred_expt_source
         self.ff_xyz = ff_xyz
+        self.dft_xyzs = dft_xyzs or {}
+        self.dft_freqs = dft_freqs or {}
         self.yaml_file = yaml_file
         self.qm_files = qm_files or {}
 
