@@ -1,5 +1,6 @@
 # Ignore Pycharm Files
 .idea/*
+*/.idea/*
 
 # Ignore Compiled Python Code
 *.pyc
